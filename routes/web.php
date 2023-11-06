@@ -1,18 +1,15 @@
 <?php
 
+use App\Http\Controllers\FoodController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+Route::get('/', [FoodController::class, 'registroUsuario'])->name('pagina-principal');
+Route::get('iniciarSesion', [FoodController::class, 'iniciarSesion']);
+Route::get('registro', [FoodController::class, 'Registro']);
+
+Route::get('home', [FoodController::class, 'listRecetas']);
+Route::get('detalles', [FoodController::class, 'detailsRecetas']);
