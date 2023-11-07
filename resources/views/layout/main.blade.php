@@ -21,23 +21,51 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 50%;">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 44%;">
+                        @role('usuario')
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="home">INICIO</a>
                         </li>
+                        @endrole
+
+                        @role('administrador')
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <li class="nav-item">
+                            <a class="nav-link2" aria-current="page" href="home">INICIO</a>
+                        </li>
+                    </div>
+                        @endrole
+
+                        @role('usuario')
                         <li class="nav-item">
                             <a class="nav-link" href="#">FAVORITOS</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">MIS RECETAS</a>
                         </li>
+                        @endrole
                     </ul>
-                    <a class="navbar-brand" href="{{ route('pagina-principal') }}">
-                        <img src="img/user.png" alt="Bootstrap" width="70px">
-                    </a>
+                        <a class="navbar-brand" {{--href="{{ route('pagina-principal') }}" --}}>
+                            <img src="img/user.png" alt="Bootstrap" width="70px">    
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                        </a>
+                        
                 </div>
             </div>
         </nav>
+        
     </header>
     {{-- contenido --}}
     @yield('content')

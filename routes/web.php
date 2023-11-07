@@ -13,3 +13,7 @@ Route::get('registro', [FoodController::class, 'Registro']);
 
 Route::get('home', [FoodController::class, 'listRecetas']);
 Route::get('detalles', [FoodController::class, 'detailsRecetas']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

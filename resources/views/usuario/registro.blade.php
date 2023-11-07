@@ -14,7 +14,8 @@
     <div class="contenedor" style="margin-top: 4%;">
         <div class="boton-container" align=center>
             <img src="img/registro.png" alt="logo" class="login">
-            <form action="/iniciar-sesion" method="post">
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
                 <!-- Campo de correo electrónico -->
                 <br><label for="email">
                     <h4><b>Correo Electrónico</b></h4>
@@ -22,10 +23,10 @@
                 <input type="email" class="input" id="email" name="email" required><br>
 
                 <!-- Campo de nombre de usuario -->
-                <br><label for="username">
+                <br><label for="name">
                     <h4><b>Nombre de Usuario</b></h4>
                 </label><br>
-                <input type="text" class="input" id="username" name="username" required><br>
+                <input type="text" class="input" id="name" name="name" required><br>
 
                 <!-- Campo de contraseña -->
                 <br><label for="password">
@@ -33,8 +34,14 @@
                 </label><br>
                 <input type="password" class="input" id="password" name="password" required><br>
 
+                <!-- Campo de confirmar contraseña -->
+                <br><label for="password-confirm">
+                    <h4><b>Confirmar contraseña</b></h4>
+                </label><br>
+                <input type="password" class="input" id="password-confirm" name="password_confirmation" required><br>
+
                 <!-- Botón de envío -->
-                <input type="submit" class="boton" value="Iniciar Sesión">
+                <input type="submit" class="boton" value="Iniciar Sesión"> 
             </form>
             <a href="{{ route('pagina-principal') }}"><button type="button" class="boton">Volver</button></a>
         </div>

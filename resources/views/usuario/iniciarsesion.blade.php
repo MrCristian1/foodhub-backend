@@ -14,7 +14,8 @@
     <div class="contenedor" style="margin-top: 6%;">
         <div class="boton-container" align=center>
             <img src="img/login.png" alt="logo" class="login">
-            <form action="/iniciar-sesion" method="post">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
                 <!-- Campo de correo electrónico -->
                 <br><label for="email"><h4><b>Correo Electrónico</b></h4></label><br>
                 <input type="email" class="input" id="email" name="email" required><br>
