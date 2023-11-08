@@ -5,7 +5,13 @@
 @endsection
 
 @section('content')
-
+<div class="card-body">
+    @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
+</div>
 <form class="d-flex" role="search">
     <select class="form-select me-2" aria-label="Search">
         <option value="" class="option">Selecciona una opción</option>
@@ -84,14 +90,3 @@
     </div>
 </div>
 @endsection
-
-
-<div class="card-body">
-    @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
-
-    {{ __('You are logged in!') }}
-</div>

@@ -21,20 +21,6 @@ a.nav-link:hover{
     border-bottom: 2px solid #e89c7c;
 }
 
-a.nav-link2 {
-    margin-right: 10px;
-    margin-left: 10px;
-    font-size: larger;
-    font-weight: bold;
-    color: #e89c7c;
-    transition: transform 0.2s ease;
-    line-height: 0.5;
-}
-a.nav-link2:hover{
-    transform: scale(1.05);
-    border-bottom: 2px solid #e89c7c;
-}
-
 
 div.collapse {
     text-align: right;

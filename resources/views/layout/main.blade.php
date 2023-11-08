@@ -21,16 +21,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 44%;">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 40%;">
                         @role('usuario')
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="home">INICIO</a>
-                        </li>
-                        @endrole
-
-                        @role('administrador')
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="home">ADMIN</a>
                         </li>
                         @endrole
 
@@ -45,7 +39,7 @@
                     </ul>
                         <a class="navbar-brand" {{--href="{{ route('pagina-principal') }}" --}}>
                             <img src="img/user.png" alt="Bootstrap" width="70px">    
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a class="nav-link dropdown-toggle" onmouseover="this.style.borderBottom = 'none';" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

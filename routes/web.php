@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 
-Route::get('/', [FoodController::class, 'registroUsuario'])->name('pagina-principal');
+Route::get('/', [FoodController::class, 'Usuario'])->name('pagina-principal');
 Route::get('iniciarSesion', [FoodController::class, 'iniciarSesion']);
 Route::get('registro', [FoodController::class, 'Registro']);
 
-Route::get('home', [FoodController::class, 'listRecetas']);
+Route::get('home', [FoodController::class, 'listRecetas'])->name('home');
 Route::get('detalles', [FoodController::class, 'detailsRecetas']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+/*Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/

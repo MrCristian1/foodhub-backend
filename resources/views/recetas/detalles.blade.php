@@ -9,6 +9,10 @@
     <div class="row post">
         <img src="img/hamburguesa.png" class="img-receta">
         <div class="col-md-7">
+            @role('administrador')
+            <!--Este es el botón para borrar la publicación, lo cual solo puede hacer un admin, falta el css el cual modificaré yo después, y esa función puesta en el onclick no existe, ahi se pone lo que seria la función ya programada de que se borre el post-->
+            <button class="cerrar-contenedor" onclick="borrarPost(this)">X</button>
+            @endrole
             <h1>Nombre Receta</h1>
             <p style="text-align: justify;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro sint expedita officiis sit doloremque maiores adipisci culpa qui impedit ea officia harum quos, sapiente nulla. Nobis odio eius sed dolore!</p>
             <b>Etiquetas:</b> Etiquetas<br><br>

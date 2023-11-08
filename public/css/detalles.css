@@ -38,6 +38,22 @@ a.navbar-brand:hover{
 .row{
     margin: 0;
 }
+button.cerrar-contenedor {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 div.contenedor{
     display: flex;
     justify-content: center;
@@ -68,9 +84,6 @@ div.contenedor{
 .post{
     width: 100%;
     padding: 20px;
-}
-.row{
-    margin-left: 0;
 }
 .img-receta {
     width: 30%;
