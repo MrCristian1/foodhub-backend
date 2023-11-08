@@ -29,11 +29,9 @@
                         @endrole
 
                         @role('administrador')
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <li class="nav-item">
-                            <a class="nav-link2" aria-current="page" href="home">INICIO</a>
+                            <a class="nav-link" aria-current="page" href="home">ADMIN</a>
                         </li>
-                    </div>
                         @endrole
 
                         @role('usuario')

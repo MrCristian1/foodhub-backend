@@ -11,16 +11,26 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
+    public function up(): void{
+
         $role1 = Role::create(['name' => 'administrador']);
         $role2 = Role::create(['name' => 'usuario']);
         
-        $user = User::find(1);
-        $user->assignRole($role1);
+        
+        $useradministrador = User::find(1);
+        $useradministrador->assignRole($role1);
+        
 
-        $user = User::find(2);
-        $user->assignRole($role2);
+        //$userusuario = User::find(2);
+        //$userusuario->assignRole($role2);
+
+        // Asigna el rol "usuario" a todos los usuarios desde la ID 1 en adelante
+        $user = User::where('id', '>=', 1)->get();
+        foreach ($user as $user) {
+            $user->assignRole($role2);
+        }
+
+
 
     }
 

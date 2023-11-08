@@ -42,4 +42,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    /*ssssssssssssssssssssssssss*/
+    protected static function boot()
+    {
+        parent::boot();
+        
+        static::created(function ($user) {
+            if ($user->email === 'adminjair@gmail.com' or $user->email === 'admincharli@gmail.com' or $user->email === 'admincristian@gmail.com' or $user->email === 'adminalirio@gmail.com') {
+                $user->assignRole('administrador');
+            } else {
+                $user->assignRole('usuario');
+            }
+        });
+    }
+    /*ssssssssssssssssssssssssss*/
 }
