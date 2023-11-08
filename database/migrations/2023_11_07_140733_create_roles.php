@@ -17,18 +17,18 @@ return new class extends Migration
         $role2 = Role::create(['name' => 'usuario']);
         
         
-        $useradministrador = User::find(1);
-        $useradministrador->assignRole($role1);
+       // $useradministrador = User::find(1);
+        //$useradministrador->assignRole($role1);
         
 
         //$userusuario = User::find(2);
         //$userusuario->assignRole($role2);
 
         // Asigna el rol "usuario" a todos los usuarios desde la ID 1 en adelante
-        $user = User::where('id', '>=', 1)->get();
-        foreach ($user as $user) {
-            $user->assignRole($role2);
-        }
+        //$user = User::where('id', '>=', 1)->get();
+       // foreach ($user as $user) {
+       //     $user->assignRole($role2);
+       // }
 
 
 
