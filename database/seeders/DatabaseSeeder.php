@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
     }
         // Poblar la tabla de usuarios con datos iniciales
         DB::table('users')->insert([
-            ['name' => 'kobbi', 'email' => 'jair@hotmail.com', 'password' => bcrypt('12345678')],
+            ['name' => 'hunter', 'email' => 'camilo@gmail.com', 'password' => bcrypt('12345678')],
         ]);
     }
 }
