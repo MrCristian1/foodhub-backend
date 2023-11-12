@@ -9,7 +9,7 @@
 @section('detail')
 <div class="contenedor">
     <div class="row post">
-        <img src="{{ asset('img/default.png') }}" class="img-receta">
+        <img src="{{ $receta->link ? asset($receta->link) : asset('img/default.png') }}" alt="Imagen"class="img-receta">
         <div class="col-md-7">
             @role('administrador')
             <!--Este es el botón para borrar la publicación, lo cual solo puede hacer un admin, falta el css el cual modificaré yo después, y esa función puesta en el onclick no existe, ahi se pone lo que seria la función ya programada de que se borre el post-->
