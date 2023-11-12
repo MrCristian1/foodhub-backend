@@ -4,10 +4,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RecetaController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
+use Illuminate\Support\Facades\Auth;
 
 // Rutas de LOGIN
 
@@ -33,5 +30,3 @@ Route::get('/detalles/{id}', [RecetaController::class, 'mostrarDetalles'])->name
 
 
 Auth::routes();
-
-/*Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/

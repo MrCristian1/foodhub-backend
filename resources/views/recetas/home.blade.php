@@ -2,7 +2,7 @@
 @extends('layout.main')
 
 @section('styles')
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 @endsection
 
 @section('content')
@@ -32,7 +32,7 @@
         <img src="img/default.png" alt="Imagen" class="imagen-post">
         <div class="info-post">
             <h2>Nombre Receta</h2>
-            <div class="etiqueta"><b>Etiquetas:</b> Etiquetas.</div><br>
+            <div class="etiqueta"><b>Etiquetas:</b> Etiquetas</div><br>
             <input type="hidden" name="post_id" value="1">
             <a href="detalles"><button class="boton">Ver Receta</button></a>
         </div>

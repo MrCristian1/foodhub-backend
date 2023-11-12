@@ -111,19 +111,20 @@ div.contenedor{
         opacity: 1;
     }
 }
-.contenedor>div{
+
+.post{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
     box-shadow: 0px 0px 5px 0px #e89c7c;
     background-color: #ffffff;
     border-radius: 20px;
     transition: transform 0.7s ease;
+    position: relative;
 }
-.contenedor>div:hover{
+.post:hover{
     background: linear-gradient(to bottom, #ffffff, #ffffff, #ffffff, #ffffff, #fde1ce);
     transform: scale(1.05);
-}
-
-.post{
-    margin-left: 20px;
 }
 .imagen-post {
     width: 320px;
@@ -140,11 +141,6 @@ div.contenedor{
     gap:15px;
     margin-top: 8px;
 }
-.info-post .precio{
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 15px;
-}
 .etiqueta{
     padding-right: 10%;
     padding-left: 10%;
@@ -157,13 +153,36 @@ div.contenedor{
     color:#fff;
     font-size: 17px;
     cursor: pointer;
-    margin-bottom: 40px;
     text-align: center;
-    display: inline-block;
     font-weight: bold;
     width: 300px;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
 }
 .boton:hover{
+    background-color: #382c2c;
+    transform: scale(1.05);
+    transition: all 0.5s ease;
+    color: #e89c7c;
+}
+
+.boton-publicar{
+    background-color: #e89c7c;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    color:#fff;
+    font-size: 17px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    width: 300px;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+.boton-publicar:hover{
     background-color: #382c2c;
     transform: scale(1.05);
     transition: all 0.5s ease;

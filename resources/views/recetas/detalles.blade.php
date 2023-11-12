@@ -3,7 +3,18 @@
 
 @section('styles')
 <link rel="stylesheet" href="{{ asset('css/detalles.css') }}">
+@endsection
 
+@section('href')
+<li class="nav-item">
+    <a class="nav-link" aria-current="page" href="../home">INICIO</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="../#">FAVORITOS</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="../misrecetas">MIS RECETAS</a>
+</li>
 @endsection
 
 @section('detail')
@@ -12,8 +23,8 @@
         <img src="{{ $receta->link ? asset($receta->link) : asset('img/default.png') }}" alt="Imagen"class="img-receta">
         <div class="col-md-7">
             @role('administrador')
-            <!--Este es el botón para borrar la publicación, lo cual solo puede hacer un admin, falta el css el cual modificaré yo después, y esa función puesta en el onclick no existe, ahi se pone lo que seria la función ya programada de que se borre el post-->
-            <button class="cerrar-contenedor" onclick="borrarPost(this)">Eliminar Post</button>
+            <!--Este es el botón para borrar la publicación, lo cual solo puede hacer un admin, la función aun borrarpost no existe, ahi se pone lo que seria la función ya programada de que se borre el post-->
+            <button class="borrar" onclick="borrarPost(this)">Eliminar Post</button>
             @endrole
             <h1>{{ $receta->nombre }}</h1>
             <p style="text-align: justify;">{{ $receta->descripcion }}</p>
