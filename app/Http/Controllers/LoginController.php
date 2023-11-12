@@ -1,25 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Receta;
 use Illuminate\Http\Request;
 
-class FoodController extends Controller
-{
-    public function listRecetas(){
-        return view('recetas.home');
-    }
 
-    public function detailsRecetas(){
-        return view('recetas.detalles');
-    }
+class LoginController extends Controller
+{
 
     public function Usuario(){
         if (auth()->check()) {
             return redirect()->route('home');
         } else {
             return view('usuario.usuario');
-        }
+        }   
     }
 
     public function iniciarSesion(){
@@ -37,4 +31,7 @@ class FoodController extends Controller
             return view('usuario.registro');
         }
     }
+    
+
+
 }

@@ -9,13 +9,13 @@
     @yield('styles')
 </head>
 
-<body style="background-image: url(img/fondo.png); background-size: cover; background-attachment: fixed;">
+<body style="background-image: url({{ asset('img/fondo.png') }}); background-size: cover; background-attachment: fixed;">
     {{-- encabezado --}}
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('pagina-principal') }}">
-                    <img src="img/logo.png" alt="logo" width="350">
+                    <img src="{{ asset('img/logo.png') }}" alt="logo" width="350">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -33,12 +33,12 @@
                             <a class="nav-link" href="#">FAVORITOS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">MIS RECETAS</a>
+                            <a class="nav-link" href="misrecetas">MIS RECETAS</a>
                         </li>
                         @endrole
                     </ul>
                         <a class="navbar-brand" {{--href="{{ route('pagina-principal') }}" --}}>
-                            <img src="img/user.png" alt="Bootstrap" width="70px">    
+                            <img src="{{ asset('img/user.png') }}" alt="Bootstrap" width="70px">    
                                 <a class="nav-link dropdown-toggle" onmouseover="this.style.borderBottom = 'none';" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>

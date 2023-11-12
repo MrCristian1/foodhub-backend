@@ -1,28 +1,42 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Receta;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    public function filtrarRecetashome(Request $request)
+    {
+        $opcion = $request->input('opcion');
+        
+        // Filtrar recetas según etiquetas y si fue publicada.
+        $recetas = Receta::where('etiquetas', 'like', "%$opcion%")
+        ->where('publicada', true)
+        ->get();
+        return view('recetas.misrecetas', compact('recetas'));
+    }
+    public function publicadas()
+    {
+        // Db obtener = recetas publicadas
+        $recetas = Receta::where('publicada', true)->get();
+        
+        return view('recetas/home', compact('recetas'));
+    }
     public function __construct()
     {
         $this->middleware('auth');
     }
+/**
+ * Create a new controller instance.
+ *
+ * @return void
+ */
+/**
+ * Show the application dashboard.
+ *
+ * @return \Illuminate\Contracts\Support\Renderable
+ */
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        return view('home');
-    }
+
 }

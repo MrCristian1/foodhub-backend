@@ -1,3 +1,4 @@
+<!--VISTA HOME-->
 @extends('layout.main')
 
 @section('styles')
@@ -12,20 +13,23 @@
         </div>
     @endif
 </div>
-<form class="d-flex" role="search">
-    <select class="form-select me-2" aria-label="Search">
-        <option value="" class="option">Selecciona una opción</option>
-        <option value="carnes" class="option">Carnes</option>
-        <option value="pescado" class="option">Pescado</option>
-        <option value="frutas" class="option">Frutas</option>
-        <option value="verduras" class="option">Verduras</option>
-    </select>
-    <button class="boton-buscar" type="submit">Buscar</button>
-</form>
+<form class="d-flex" role="search" method="GET" action="{{ route('filtrar.recetashome') }}">
+        @csrf
+        <select name="opcion" class="form-select me-2" aria-label="Search">
+            <option value="" class="option">Selecciona una opción</option>
+            <option value="carnes" class="option">Carnes</option>
+            <option value="arroz" class="option">Arroz</option>
+            <option value="Pollo" class="option">Pollo</option>
+            <option value="verduras" class="option">Verduras</option>
+            <option value="pan" class="option">Pan</option>
+            <option value="queso" class="option">Queso</option>
+        </select>
+        <button type="submit" class="boton-buscar">Buscar</button>
+    </form>
 
 <div id="contenedor" class="contenedor">
     <div class="post">
-        <img src="img/hamburguesa.png" alt="Imagen" class="imagen-post">
+        <img src="img/default.png" alt="Imagen" class="imagen-post">
         <div class="info-post">
             <h2>Nombre Receta</h2>
             <div class="etiqueta"><b>Etiquetas:</b> Etiquetas.</div><br>
@@ -33,60 +37,24 @@
             <a href="detalles"><button class="boton">Ver Receta</button></a>
         </div>
     </div>
-
-
-    <div class="post">
-        <img src="img/hamburguesa.png" alt="Imagen" class="imagen-post">
-        <div class="info-post">
-            <h2>Nombre Receta</h2>
-            <div class="etiqueta"><b>Etiquetas:</b> Etiquetas.</div><br>
-            <input type="hidden" name="post_id" value="1">
-            <a href="detalles"><button class="boton">Ver Receta</button></a>
+    @isset($recetas)
+    @forelse($recetas as $receta)
+        <div class="post">
+            <img src="{{ $receta->link ?? 'img/default.png' }}" alt="Imagen" class="imagen-post">
+            <div class="info-post">
+                <h2>{{ $receta->nombre }}</h2>
+                <div class="etiqueta"><b>Etiquetas:</b> {{ $receta->etiquetas }}</div><br>
+                <input type="hidden" name="post_id" value="{{ $receta->id }}">
+                <a href="{{ route('detalles', ['id' => $receta->id]) }}">
+                    <button class="boton">Ver Receta</button>
+                </a>
+            </div>
         </div>
-    </div>
-
-
-    <div class="post">
-        <img src="img/hamburguesa.png" alt="Imagen" class="imagen-post">
-        <div class="info-post">
-            <h2>Nombre Receta</h2>
-            <div class="etiqueta"><b>Etiquetas:</b> Etiquetas.</div><br>
-            <input type="hidden" name="post_id" value="1">
-            <a href="detalles"><button class="boton">Ver Receta</button></a>
-        </div>
-    </div>
-
-
-    <div class="post">
-        <img src="img/hamburguesa.png" alt="Imagen" class="imagen-post">
-        <div class="info-post">
-            <h2>Nombre Receta</h2>
-            <div class="etiqueta"><b>Etiquetas:</b> Etiquetas.</div><br>
-            <input type="hidden" name="post_id" value="1">
-            <a href="detalles"><button class="boton">Ver Receta</button></a>
-        </div>
-    </div>
-
-
-    <div class="post">
-        <img src="img/hamburguesa.png" alt="Imagen" class="imagen-post">
-        <div class="info-post">
-            <h2>Nombre Receta</h2>
-            <div class="etiqueta"><b>Etiquetas:</b> Etiquetas.</div><br>
-            <input type="hidden" name="post_id" value="1">
-            <a href="detalles"><button class="boton">Ver Receta</button></a>
-        </div>
-    </div>
-
-
-    <div class="post">
-        <img src="img/hamburguesa.png" alt="Imagen" class="imagen-post">
-        <div class="info-post">
-            <h2>Nombre Receta</h2>
-            <div class="etiqueta"><b>Etiquetas:</b> Etiquetas.</div><br>
-            <input type="hidden" name="post_id" value="1">
-            <a href="detalles"><button class="boton">Ver Receta</button></a>
-        </div>
-    </div>
+    @empty
+        <p>No hay recetas publicadas.</p>
+    @endforelse
+@endisset
+   
 </div>
 @endsection
+    
