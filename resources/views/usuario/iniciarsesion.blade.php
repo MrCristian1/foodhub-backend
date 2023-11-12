@@ -24,8 +24,21 @@
                 <br><label for="password"><h4><b>Contraseña</b></h4></label><br>
                 <input type="password" class="input" id="password" name="password" required><br>
 
+
+                <br>
+
+                @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                
+                @error('password')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                
+
                 <!-- Botón de envío -->
                 <input type="submit" class="boton" value="Iniciar Sesión">
+
             </form>
             <a href="{{ route('pagina-principal') }}"><button type="button" class="boton">Volver</button></a>
         </div>

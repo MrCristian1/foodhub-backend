@@ -40,8 +40,15 @@
                 </label><br>
                 <input type="password" class="input" id="password-confirm" name="password_confirmation" required><br>
 
+                <br>
+                @if ($errors->has('password'))
+                    <div class="alert alert-danger">
+                        {{ $errors->first('password') }}
+                    </div>
+                @endif
+
                 <!-- Botón de envío -->
-                <input type="submit" class="boton" value="Iniciar Sesión"> 
+                <input type="submit" class="boton" value="Iniciar Sesión">
             </form>
             <a href="{{ route('pagina-principal') }}"><button type="button" class="boton">Volver</button></a>
         </div>

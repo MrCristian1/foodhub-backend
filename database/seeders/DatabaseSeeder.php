@@ -41,6 +41,26 @@ class DatabaseSeeder extends Seeder
 
         $user->assignRole($role1);
     }
+
+            // Asignar el rol "usuario" a usuarios específicos
+            $usuariosConRolUsuario = [
+                ['name' => 'kobbi', 'email' => 'jair@gmail.com', 'password' => bcrypt('12345678')],
+                ['name' => 'camila', 'email' => 'camila@gmail.com', 'password' => bcrypt('12345678')],
+            ];
+    
+            foreach ($usuariosConRolUsuario as $usuarioData) {
+                $usuario = User::where('email', $usuarioData['email'])->first();
+    
+                if (!$usuario) {
+                    $usuario = User::create([
+                        'name' => $usuarioData['name'],
+                        'email' => $usuarioData['email'],
+                        'password' => $usuarioData['password'],
+                    ]);
+                }
+    
+                $usuario->assignRole($role2); // Asigna el rol de "usuario"
+            }
     // Poblar la tabla de usuarios con datos iniciales
     /*DB::table('users')->insert([
         ['name' => 'hunter', 'email' => 'camilo@gmail.com', 'password' => bcrypt('12345678')],
