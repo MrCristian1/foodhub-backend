@@ -27,6 +27,7 @@ Route::post('/crearreceta', [RecetaController::class, 'crearReceta'])->name('cre
 
 // RUTA DETALLE 
 Route::get('/detalles/{id}', [RecetaController::class, 'mostrarDetalles'])->name('detalles');
+Route::post('/eliminar-post/{id}', [RecetaController::class, 'eliminarPost'])->name('eliminar.post');
 
 
 Auth::routes();

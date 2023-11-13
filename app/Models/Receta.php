@@ -23,6 +23,7 @@ class Receta extends Model
         'descripcion',
         'etiquetas',
         'link',
+        'publicada',
         'ingredientes',
         'preparacion',
     ];

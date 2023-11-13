@@ -29,32 +29,44 @@
     </form>
     <div id="contenedor" class="contenedor">
         <div class="post"> <img src="img/suma.png" alt="Imagen" class="imagen-post">
-            <div class="info-post"> <input type="hidden" name="post_id" value="1"> <a href="crearreceta"><button
+            <div class="info-post"> <input type="hidden" name="post_id" value="1"> 
+                <a href="crearreceta"><button
                         class="boton" style="height: 30%;">AÑADIR RECETA</button>
                 </a>
             </div>
         </div>
 
-        @foreach ($recetas as $receta)
+        @foreach($recetas as $receta)
             <div class="post">
                 <img src="{{ $receta->link ?? 'img/default.png' }}" alt="Imagen" class="imagen-post">
-                <div class="info-post">
-                    <h2>{{ $receta->nombre }}</h2>
-                    <div class="etiqueta"><b>Etiquetas:</b> {{ $receta->etiquetas }}</div><br>
-                    <input type="hidden" name="post_id" value="{{ $receta->id }}">
-                    @if (!$receta->publicada)
-                        <form action="{{ route('publicar.receta', ['id' => $receta->id]) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="boton-publicar">Publicar</button>
-                        </form>
-                    @else
-                        <a href="{{ route('detalles', ['id' => $receta->id]) }}">
-                            <button class="boton">Ver Receta</button>
-                        </a>
-                    @endif
+                @if (!$receta->publicada)
+                <div>
+                    <form action="{{ route('publicar.receta', ['id' => $receta->id]) }}" method="POST" style="padding: 10px; height: 70px;">
+                    @csrf
+                    <button type="submit"class="boton-publicar"  >Publicar</button>
+                    </form>
                 </div>
+            @endif
+            <div class="info-post">
+                <h2>{{ $receta->nombre }}</h2>
+                <div class="etiqueta"><b>Etiquetas:</b> {{ $receta->etiquetas }}</div><br>
+                <input type="hidden" name="post_id" value="{{ $receta->id }}">
+                    
+            
             </div>
+            
+            <div>
+                
+            <a href="{{ route('detalles', ['id' => $receta->id]) }}">
+                        <button class="boton">Ver Receta</button>
+                     </a>
+            </div>
+            
+        </div>
+        
         @endforeach
 
-    </div>
-@endsection
+        </div>
+        @endsection
+
+        </div>

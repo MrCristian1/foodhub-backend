@@ -23,8 +23,12 @@
         <img src="{{ $receta->link ? asset($receta->link) : asset('img/default.png') }}" alt="Imagen"class="img-receta">
         <div class="col-md-7">
             @role('administrador')
-            <!--Este es el botón para borrar la publicación, lo cual solo puede hacer un admin, la función aun borrarpost no existe, ahi se pone lo que seria la función ya programada de que se borre el post-->
-            <button class="borrar" onclick="borrarPost(this)">Eliminar Post</button>
+            <!--BOTÓN BORRAR PUBLICACIÓN (solo para admins)-->
+            <form action="{{ route('eliminar.post', ['id' => $receta->id]) }}" method="POST">
+            @csrf
+    <button class="buton borrar" type="submit">Eliminar Receta</button>
+</form>
+            
             @endrole
             <h1>{{ $receta->nombre }}</h1>
             <p style="text-align: justify;">{{ $receta->descripcion }}</p>

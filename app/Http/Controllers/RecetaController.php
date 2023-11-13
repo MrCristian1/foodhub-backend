@@ -90,5 +90,37 @@ public function publicarReceta($id)
     // Redireccionar y mensaje de éxito :)
     return redirect()->route('misrecetas')->with('status', 'Receta publicada exitosamente.');
 }
+public function eliminarPost($id)
+{
+    // Obtén la receta por su ID
+    $receta = Receta::find($id);
+
+    // Verifica si la receta existe y si es un administrador
+    if ($receta && auth()->user()) {
+        // Mensaje de registro para verificar que la función se está ejecutando
+        \Log::info('Eliminar post: Función ejecutada correctamente');
+
+        // Cambia el estado de publicación a false
+        $receta->update(['publicada' => false]);
+        
+
+        // Mensaje de registro para verificar si la actualización se realiza correctamente
+        \Log::info('Eliminar post: Publicada actualizada a false');
+
+        // Puedes agregar más lógica aquí, como redireccionar a la página principal o mostrar un mensaje de éxito
+    } else {
+        // Mensaje de registro para verificar si la receta no existe o el usuario no es un administrador
+        \Log::info('Eliminar post: Receta no encontrada o usuario no autorizado');
+    }
+
+    // Redirige de vuelta a la página de detalles de la receta
+    return redirect()->route('home')->with('status', 'Receta eliminada exitosamente.');
+}
+
+
+
+
+
+
 
     }
