@@ -44,6 +44,9 @@
 
         </div>
     </div>
+@endsection
+
+@section('comments')
 
     <footer class="comentarios-footer">
         <div class="comentarios-container">
@@ -144,6 +147,3 @@
         </div>
     </footer>
 @endsection
-
-
-
