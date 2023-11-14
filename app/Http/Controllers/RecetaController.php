@@ -40,8 +40,10 @@
         // Obtener la receta específica desde la base de datos
         $receta = Receta::findOrFail($id);
 
+        $comentario = $receta->comentario;
+
         // Pasar la receta a la vista
-        return view('recetas/detalles', compact('receta'));
+        return view('recetas/detalles', compact('receta', 'comentario'));
     }
 
     public function crearRecetaForm()

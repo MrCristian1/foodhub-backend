@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controllers\ComentarioController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RecetaController;
 use App\Http\Controllers\HomeController;
@@ -24,6 +25,10 @@ Route::get('/filtrar-recetas', [RecetaController::class, 'filtrarRecetas'])->nam
 Route::post('/publicar-receta/{id}', [RecetaController::class, 'publicarReceta'])->name('publicar.receta');
 Route::get('/crearreceta', [RecetaController::class, 'crearRecetaForm'])->name('crearreceta.form');
 Route::post('/crearreceta', [RecetaController::class, 'crearReceta'])->name('crearreceta');
+
+//RUTAS de COMENTARIOS
+Route::post('comentario/{post}', [ComentarioController::class, 'guardar'])->name('comentario');
+
 
 // RUTA DETALLE 
 Route::get('/detalles/{id}', [RecetaController::class, 'mostrarDetalles'])->name('detalles');

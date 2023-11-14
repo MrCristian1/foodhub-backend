@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\Comentario;
 
 class Receta extends Model
 {
@@ -32,4 +33,14 @@ class Receta extends Model
 {
     return $this->belongsTo(User::class, 'user_id');
 }
+
+
+//ojo con lo de receta_id porque no se sabe si así este el campo en la tabla
+    public function comentario(){
+
+        return $this->hasMany(Comentario::class,'receta_id');
+    }
+
+    
+
 }
