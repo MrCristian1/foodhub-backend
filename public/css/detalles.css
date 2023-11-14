@@ -1,9 +1,6 @@
 body{
     animation: aparecer 1s ease forwards;
     transition: opacity 0.5s;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 /*header*/
@@ -83,7 +80,7 @@ div.contenedor{
 .img-receta {
     width: 30%;
     object-fit: cover;
-    border-radius: 40px;
+    border-radius: 20px;
 }
 .info-post{
     height: 150px;
@@ -118,7 +115,6 @@ div.contenedor{
 .comentarios-footer {
     background-color: #382c2c;
     padding: 20px;
-    border-radius: 20px;
 }
 
 .comentarios-container {
@@ -158,36 +154,20 @@ div.contenedor{
 h3 {
     font-size: 16px;
 }
-h1{
-    word-wrap: break-word;
-}
 
 p {
     font-size: 14px;
 }
 
 /*footer*/
-.content{
-    flex: 1; /* El wrapper se expande para llenar el espacio restante */
-    display: flex;
-    flex-direction: column;
-}
 .footer {
-    background-color: #261e1e;
+    background-color: #1b1515;
     color: #fff;
-    min-height: 70px;
-    padding: 20px 30px;
-    position: static;
-    z-index: 2;
-    animation: fadein .8s;
-    border-top: 1px solid #252c32;
-    display: block;
-    margin-top: auto;
+    padding: 20px 0;
 }
 
 .container {
     max-width: 960px;
-    margin-top: auto;
     margin: 0 auto;
 }
 

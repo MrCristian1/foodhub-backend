@@ -1,9 +1,6 @@
 body{
     animation: aparecer 1s ease forwards;
     transition: opacity 0.5s;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 /*header*/
@@ -124,7 +121,6 @@ div.contenedor{
     border-radius: 20px;
     transition: transform 0.7s ease;
     position: relative;
-    max-width: 320px;
 }
 .post:hover{
     background: linear-gradient(to bottom, #ffffff, #ffffff, #ffffff, #ffffff, #fde1ce);
@@ -136,21 +132,14 @@ div.contenedor{
     object-fit:cover;
     border-radius: 20px 20px 0px 0px;
 }
-h2{
-    font-size: 24px;
-    word-wrap: break-word;
-    padding-right: 10px;
-    padding-left: 10px;
-}
 .info-post{
+    height: 150px;
     text-align: center;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap:15px;
     margin-top: 8px;
-    margin-bottom: 45px;
-    width: 320px;
 }
 .etiqueta{
     padding-right: 10%;
@@ -167,7 +156,6 @@ h2{
     text-align: center;
     font-weight: bold;
     width: 300px;
-    margin-top: 5px;
     position: absolute;
     bottom: 5px;
     right: 10px;
@@ -179,6 +167,7 @@ h2{
     transition: all 0.5s ease;
     color: #e89c7c;
 }
+
 .boton-publicar{
     background-color: #e89c7c;
     padding: 10px;
@@ -190,27 +179,16 @@ h2{
     text-align: center;
     font-weight: bold;
     width: 300px;
-    margin-top: 5px;
+
 }
 .boton-publicar:hover{
     background-color: #382c2c;
+    transform: scale(1.05);
     transition: all 0.5s ease;
     color: #e89c7c;
 }
 
-.botones{
-    position: absolute;
-    top: 10px;
-    bottom: 5px;
-    right: 10px;
-}
-
 /*footer*/
-.content{
-    flex: 1; /* El wrapper se expande para llenar el espacio restante */
-    display: flex;
-    flex-direction: column;
-}
 .footer {
     background-color: #372b2b;
     color: #fff;
@@ -221,13 +199,10 @@ h2{
     animation: fadein .8s;
     border-top: 1px solid #252c32;
     display: block;
-    margin-top: auto;
-
 }
 
 .container {
     max-width: 960px;
-    margin-top: auto;
     margin: 0 auto;
 }
 
@@ -244,3 +219,5 @@ a {
     color: #fff;
     text-decoration: none;
 }
+
+
