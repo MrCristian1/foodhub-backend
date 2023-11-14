@@ -1,6 +1,9 @@
 body{
     animation: aparecer 1s ease forwards;
     transition: opacity 0.5s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /*header*/
@@ -95,9 +98,16 @@ a {
 
 /*footer*/
 .footer {
-    background-color: #1b1515;
+    background-color: #372b2b;
     color: #fff;
-    padding: 20px 0;
+    min-height: 70px;
+    padding: 20px 30px;
+    position: static;
+    z-index: 2;
+    animation: fadein .8s;
+    border-top: 1px solid #252c32;
+    display: block;
+    margin-top: auto;
 }
 
 .container {

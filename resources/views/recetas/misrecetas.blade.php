@@ -30,7 +30,7 @@
     <div id="contenedor" class="contenedor">
         <div class="post"> <img src="img/suma.png" alt="Imagen" class="imagen-post">
             <div class="info-post"> <input type="hidden" name="post_id" value="1">
-                <a href="crearreceta"><button class="boton" style="height: 30%; right: 8px;">AÑADIR RECETA</button>
+                <a href="crearreceta"><button class="boton" style="height: 30%; right: 9.5px;">AÑADIR RECETA</button>
                 </a>
             </div>
         </div>
@@ -45,7 +45,6 @@
                 </div>
                 <div class="botones">
                     <div>
-
                         <a href="{{ route('detalles', ['id' => $receta->id]) }}">
                             <button class="boton" style="right: 0px;">Ver Receta</button>
                         </a>

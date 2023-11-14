@@ -69,7 +69,7 @@ select.me-2{
   
 
 .d-flex{
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     margin-top: 10px;
     margin-right: 11%;
     margin-left: 13%;
@@ -99,7 +99,7 @@ div.contenedor{
     flex-wrap: wrap;
     gap: 50px;
     margin-bottom: 20px;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-right: 50px;
     margin-left: 50px;
     animation: aparecer 1s ease forwards;
@@ -222,7 +222,6 @@ h2{
     border-top: 1px solid #252c32;
     display: block;
     margin-top: auto;
-
 }
 
 .container {

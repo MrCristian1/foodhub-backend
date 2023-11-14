@@ -22,6 +22,13 @@
                 </label><br>
                 <input type="email" class="input" id="email" name="email" required><br>
 
+                @if ($errors->has('email'))
+                    <br>
+                    <div class="alert alert-danger">
+                        {{ $errors->first('email') }}
+                    </div>
+                @endif
+
                 <!-- Campo de nombre de usuario -->
                 <br><label for="name">
                     <h4><b>Nombre de Usuario</b></h4>
@@ -57,5 +64,4 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 </body>
-
 </html>
