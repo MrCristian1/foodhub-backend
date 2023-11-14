@@ -9,14 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('comentarios', function (Blueprint $table) {
+        Schema::create('recetas_favoritas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->foreignId('receta_id')->constrained();
-            $table->foreignId('comentario_id')->nullable();
-            $table->text('contenido');
             $table->timestamps();
         });
     }
@@ -24,8 +22,8 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('comentarios');
+        Schema::dropIfExists('recetas_favoritas');
     }
 };

@@ -18,6 +18,10 @@ Route::get('registro', [LoginController::class, 'Registro']);
 Route::get('home', [HomeController::class, 'publicadas'])->name('home');
 Route::get('/filtrar-recetashome', [HomeController::class, 'filtrarRecetashome'])->name('filtrar.recetashome');
 
+//RUTAS de Favoritos
+Route::get('favoritos', [RecetaController::class, 'favoritas'])->name('favoritos');
+Route::post('favoritos/agregar/{id}', [RecetaController::class, 'agregarFavorito'])->name('favoritos.agregar');
+Route::post('favoritos/quitar/{id}', [RecetaController::class, 'quitarFavorito'])->name('favoritos.quitar');
 //RUTAS de MIS RECETAS
 Route::get('misrecetas', [RecetaController::class, 'misRecetas'])->name('misrecetas');
 Route::get('misrecetas/{id}', [RecetaController::class, 'mostrarDetalles'])->name('detalles.receta');
@@ -26,6 +30,8 @@ Route::post('/publicar-receta/{id}', [RecetaController::class, 'publicarReceta']
 Route::get('/crearreceta', [RecetaController::class, 'crearRecetaForm'])->name('crearreceta.form');
 Route::post('/crearreceta', [RecetaController::class, 'crearReceta'])->name('crearreceta');
 
+
+
 //RUTAS de COMENTARIOS
 Route::post('comentario/{post}', [ComentarioController::class, 'guardar'])->name('comentario');
 
@@ -33,6 +39,7 @@ Route::post('comentario/{post}', [ComentarioController::class, 'guardar'])->name
 // RUTA DETALLE 
 Route::get('/detalles/{id}', [RecetaController::class, 'mostrarDetalles'])->name('detalles');
 Route::post('/eliminar-post/{id}', [RecetaController::class, 'eliminarPost'])->name('eliminar.post');
+Route::delete('/eliminar-receta/{id}', [RecetaController::class, 'eliminarReceta'])->name('eliminar.receta');
 
 
 Auth::routes();

@@ -44,8 +44,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-
-    /*ssssssssssssssssssssssssss*/
     protected static function boot()
     {
         parent::boot();
@@ -54,5 +52,10 @@ class User extends Authenticatable
             $user->assignRole('usuario');
         });
     }
-    /*ssssssssssssssssssssssssss*/
+
+    public function recetasFavoritas()
+    {
+        return $this->belongsToMany(Receta::class, 'recetas_favoritas', 'user_id', 'receta_id');
+    }
+
 }

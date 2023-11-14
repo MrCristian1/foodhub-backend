@@ -116,13 +116,57 @@ public function eliminarPost($id)
     }
 
     // Redirige de vuelta a la página de detalles de la receta
-    return redirect()->route('home')->with('status', 'Receta eliminada exitosamente.');
+        return redirect()->route('home')->with('status', 'Receta eliminada exitosamente.');
+        }
+
+        public function favoritas()
+    {
+        // Obtén las recetas favoritas del usuario autenticado
+        $recetasFavoritas = auth()->user()->recetasFavoritas;
+
+        return view('recetas/favoritos', compact('recetasFavoritas'));
+    }
+    public function agregarFavorito($id)
+    {
+        // Obtén la receta por su ID
+        $receta = Receta::findOrFail($id);  
+
+        // Verifica si la receta ya está en las favoritas del usuario
+        if (!Auth::user()->recetasFavoritas->contains($receta)) {
+            // Agrega la receta a las favoritas del usuario autenticado
+            Auth::user()->recetasFavoritas()->attach($receta);
+            return redirect()->route('home')->with('status', 'Receta agregada a favoritos');
+        }
+
+        return redirect()->route('home')->with('warning', 'La receta ya está en tus favoritos');
+    }
+
+        public function quitarFavorito($id)
+        {
+          Auth::user()->recetasFavoritas()->detach($id);
+
+          return redirect()->route('home')->with('status', 'Receta eliminada de favoritos');
+        }
+
+
+public function eliminarReceta($id)
+{
+    // Obtén la receta por su ID
+    $receta = Receta::find($id);
+
+    // Verifica si la receta existe y si el usuario autenticado es el creador
+    if ($receta && auth()->user()->id == $receta->user_id) {
+        // Elimina la receta
+        $receta->delete();
+
+        // Puedes agregar más lógica aquí, como redireccionar a la página principal o mostrar un mensaje de éxito
+        return redirect()->route('misrecetas')->with('status', 'Receta eliminada correctamente');
+    } else {
+        // Maneja el caso en el que la receta no existe o el usuario no es el creador
+        return redirect()->back()->with('error', 'No tienes permisos para eliminar esta receta');
+    }
 }
 
 
 
-
-
-
-
-    }
+}

@@ -10,7 +10,7 @@
         <a class="nav-link" aria-current="page" href="../home">INICIO</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="../#">FAVORITOS</a>
+        <a class="nav-link" href="../favoritos">FAVORITOS</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="../misrecetas">MIS RECETAS</a>
@@ -26,21 +26,41 @@
                 <h1>{{ $receta->nombre }}</h1>
                 <p style="text-align: justify;">{{ $receta->descripcion }}</p>
                 <b>Etiquetas:</b> {{ $receta->etiquetas }}<br><br>
-                <button type="button" class="boton">Añadir a favoritos</button>
-                @role('administrador')
-                    <!--BOTÓN BORRAR PUBLICACIÓN (solo para admins)-->
-                    <form action="{{ route('eliminar.post', ['id' => $receta->id]) }}" method="POST" style="margin: 0;">
-                        @csrf
-                        <button class="borrar" type="submit" style="margin-top: 8px;">Eliminar Receta</button>
-                    </form>
-                @endrole
+                <!--ss-->
+                <!-- Botón Eliminar Receta (solo para el creador y si la receta no está publicada) -->
+                @if (Auth::user()->id == $receta->user_id && !$receta->publicada)
+                <form action="{{ route('eliminar.receta', ['id' => $receta->id]) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="boton">Eliminar Receta</button>
+                </form>
+                @endif
+                
+                <!-- Agregar a favoritos -->
+<form action="{{ route('favoritos.agregar', ['id' => $receta->id]) }}" method="POST">
+    @csrf
+    <button type="submit" class="boton">Agregar a Favoritos</button>
+</form>
+
+<!-- Quitar de favoritos -->
+<form action="{{ route('favoritos.quitar', ['id' => $receta->id]) }}" method="POST">
+    @csrf
+    <button type="submit" class="boton">Quitar de Favoritos</button>
+</form>
+                <!-- BOTÓN BORRAR PUBLICACIÓN (solo para admins o el creador) -->
+@if ((Auth::user()->hasRole('administrador') || (Auth::user()->hasRole('usuario') && Auth::user()->id == $receta->user_id)) && $receta->publicada)
+    <form action="{{ route('eliminar.post', ['id' => $receta->id]) }}" method="POST" style="margin: 0;">
+        @csrf
+        <button class="borrar" type="submit" style="margin-top: 8px;">Eliminar Post</button>
+    </form>
+@endif
             </div>
         </div>
         <div class="post">
             <h2>Ingredientes</h2>
-            <p style="text-align: justify;">{{ $receta->ingredientes }}</p>
+            <p style="text-align: justify; white    -space: pre-line;">{{ $receta->ingredientes }}</p>
             <h2>Procedimiento</h2>
-            <p style="text-align: justify;">{{ $receta->preparacion }}</p>
+            <p style="text-align: justify; white-space: pre-line;">{{ $receta->preparacion }}</p>
         </div>
     </div>
 @endsection

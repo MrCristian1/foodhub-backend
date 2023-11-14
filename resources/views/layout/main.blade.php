@@ -33,7 +33,7 @@
                                     <a class="nav-link" aria-current="page" href="home">INICIO</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">FAVORITOS</a>
+                                    <a class="nav-link" href="favoritos">FAVORITOS</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="misrecetas">MIS RECETAS</a>
