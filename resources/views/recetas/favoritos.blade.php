@@ -27,24 +27,26 @@
         <button type="submit" class="boton-buscar">Buscar</button>
     </form>
 
-
-        <!-- Mostrar recetas favoritas -->
-@forelse(Auth::user()->recetasFavoritas as $receta)
-<div class="post">
-                    <img src="{{ $receta->link ?? 'img/default.png' }}" alt="Imagen" class="imagen-post">
-                    <div class="info-post">
-                        <h2>{{ $receta->nombre }}</h2>
-                        <div class="etiqueta"><b>Etiquetas:</b> {{ $receta->etiquetas }}</div><br>
-                        <input type="hidden" name="post_id" value="{{ $receta->id }}">
-                        <a href="{{ route('detalles', ['id' => $receta->id]) }}">
-                            <button class="boton">Ver Receta</button>
-                        </a>
-                    </div>
+    <!-- Mostrar recetas favoritas -->
+    <div class="contenedor">
+        @forelse(Auth::user()->recetasFavoritas as $receta)
+            <div class="post">
+                <img src="{{ $receta->link ?? 'img/default.png' }}" alt="Imagen" class="imagen-post">
+                <div class="info-post">
+                    <h2>{{ $receta->nombre }}</h2>
+                    <div class="etiqueta"><b>Etiquetas:</b> {{ $receta->etiquetas }}</div><br>
+                    <input type="hidden" name="post_id" value="{{ $receta->id }}">
+                    <a href="{{ route('detalles', ['id' => $receta->id]) }}">
+                        <button class="boton">Ver Receta</button>
+                    </a>
                 </div>
-            @empty
-                <p>No hay recetas favoritas.</p>
-@endforelse
+            </div>
+        @empty
+            <div align=center>
+                <p class="no-recetas">No hay recetas favoritas.</p>
+            </div>
+        @endforelse
+    </div>
 
     </div>
 @endsection
-    

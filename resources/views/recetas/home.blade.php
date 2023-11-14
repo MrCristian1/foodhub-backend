@@ -28,15 +28,6 @@
     </form>
 
     <div id="contenedor" class="contenedor">
-        <div class="post">
-            <img src="img/default.png" alt="Imagen" class="imagen-post">
-            <div class="info-post">
-                <h2>Nombre Receta</h2>
-                <div class="etiqueta"><b>Etiquetas:</b> Etiquetas</div>
-                <input type="hidden" name="post_id" value="1">
-                <a href="detalles"><button class="boton">Ver Receta</button></a>
-            </div>
-        </div>
         @isset($recetas)
             @forelse($recetas as $receta)
                 <div class="post">

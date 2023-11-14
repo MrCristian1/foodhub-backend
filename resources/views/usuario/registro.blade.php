@@ -31,18 +31,27 @@
 
                 <!-- Campo de nombre de usuario -->
                 <br><label for="name">
-                    <h4><b>Nombre de Usuario</b></h4>
+                    <h4 style="margin-bottom: 0px"><b>Nombre de Usuario</b></h4>
                 </label><br>
                 <input type="text" class="input" id="name" name="name" required><br>
+                (de 3 a 10 caracteres)
+
+                @if ($errors->has('name'))
+                    <br>
+                    <div class="alert alert-danger">
+                        {{ $errors->first('name') }}
+                    </div>
+                @endif
 
                 <!-- Campo de contraseña -->
-                <br><label for="password">
+                <br><label for="password" style="margin-top: 10px;">
                     <h4><b>Contraseña</b></h4>
                 </label><br>
                 <input type="password" class="input" id="password" name="password" required><br>
+                (mínimo 8 caracteres)
 
                 <!-- Campo de confirmar contraseña -->
-                <br><label for="password-confirm">
+                <br><label for="password-confirm" style="margin-top: 10px;">
                     <h4><b>Confirmar contraseña</b></h4>
                 </label><br>
                 <input type="password" class="input" id="password-confirm" name="password_confirmation" required><br>

@@ -41,5 +41,8 @@ Route::get('/detalles/{id}', [RecetaController::class, 'mostrarDetalles'])->name
 Route::post('/eliminar-post/{id}', [RecetaController::class, 'eliminarPost'])->name('eliminar.post');
 Route::delete('/eliminar-receta/{id}', [RecetaController::class, 'eliminarReceta'])->name('eliminar.receta');
 
+Route::post('/eliminar-comentarios/{idReceta}', 'ComentarioController@eliminarComentariosReceta')->name('eliminar.comentarios.receta');
+
+
 
 Auth::routes();

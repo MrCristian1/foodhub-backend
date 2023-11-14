@@ -2,7 +2,7 @@
 
 
     namespace App\Http\Controllers;
-
+    use App\Models\Comentario;
     use Illuminate\Http\Request;
     use App\Models\Receta;
     use Illuminate\Support\Facades\Auth;
@@ -92,8 +92,13 @@ public function publicarReceta($id)
     // Redireccionar y mensaje de éxito :)
     return redirect()->route('misrecetas')->with('status', 'Receta publicada exitosamente.');
 }
+
+
 public function eliminarPost($id)
 {
+
+
+
     // Obtén la receta por su ID
     $receta = Receta::find($id);
 
@@ -113,6 +118,7 @@ public function eliminarPost($id)
     } else {
         // Mensaje de registro para verificar si la receta no existe o el usuario no es un administrador
         \Log::info('Eliminar post: Receta no encontrada o usuario no autorizado');
+
     }
 
     // Redirige de vuelta a la página de detalles de la receta
@@ -151,6 +157,8 @@ public function eliminarPost($id)
 
 public function eliminarReceta($id)
 {
+    // Eliminar comentarios de la receta
+    Comentario::where('receta_id', $id)->delete();
     // Obtén la receta por su ID
     $receta = Receta::find($id);
 
